@@ -1,4 +1,4 @@
-﻿using System;
+﻿using BenchmarkDotNet.Running;
 
 namespace ALGHW3
 {
@@ -6,7 +6,34 @@ namespace ALGHW3
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            BenchmarkSwitcher.FromAssembly(typeof(Program).Assembly).Run(args);
         }
     }
+
+    //public class BechmarkClass
+    //{
+    //    public int SumValueType(int value)
+    //    {
+    //        return 9 + value;
+    //    }
+
+    //    public int SumRefType(object value)
+    //    {
+    //        return 9 + (int)value;
+    //    }
+
+    //    [Benchmark]
+    //    public void TestSum()
+    //    {
+    //        SumValueType(99);
+    //    }
+
+    //    [Benchmark]
+    //    public void TestSumBoxing()
+    //    {
+    //        object x = 99;
+    //        SumRefType(x);
+    //    }
+
+    //}
 }
